@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+     <div class="row"  id="sep" >
+        <h4 class="subheader text-center">Iniciar sesion</h4>
+        <form id="formulario" method="post" >
+            {% csrf_token %}
+            <div class="large-12 columns">
+                <label>Usuario</label>
+                 {{ form.username }}
+            </div>
+            <div class="large-12 columns">
+                <label>Contraseña</label>
+                    {{ form.password }}
+           </div>
+           <div class="large-12 column">
+                 <button class="button expanded" type="submit" name="button">Iniciar sesion</button>
+            </div>
+        </form>
+    </div>
+
+  {% endblock %}

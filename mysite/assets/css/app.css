@@ -1,0 +1,38 @@
+
+#logotipoDIF{
+  float: left;
+  width: 19%;
+  height: 19%;
+}
+
+#encabezado{
+  float: left;
+  font-size: 33px;
+}
+
+#formulario{
+  /*border:5px solid red;*/
+  margin: auto;
+  width: 400px;
+}
+
+#sep, #logotipoDIF{
+  margin-top:20px;
+}
+
+td{
+  text-align: center;
+}
+
+#img-medicamentos{
+  float: left;
+  width: 30%;
+  height: 30%;
+  border-radius: 12px;
+}
+
+#bienvenido{
+  font-size: 50px;
+  /**font-family: "Tw Cen MT";**/
+  margin-top: 50px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href= {% static 'css/foundation.css' %}>
+    <link rel="stylesheet" href= {% static 'css/app.css' %}>
+    <link rel="stylesheet" href= {% static 'foundation-icons/foundation-icons.css' %}>
+    <script src={% static 'js/vendor/jquery.js' %}></script>
+    <script src={% static 'js/vendor/foundation.js' %}></script>
+    <script src="{% static "js/app.js" %}"></script>
+  </head>
+
+  <body>
+
+        <div class="row">
+
+            <div class="large-12 column">
+                <img src="{% static 'img/logos.png' %}" id="logotipoDIF">
+                <div class="row first-paddin">
+                    <br>
+                    <h3 class="subheader text-center" id="encabezado">SISTEMA INTEGRAL PARA EL DESARROLLO DE LA FAMILIA</h3>
+                    <hr> <!--LINEA DIVISIORA-->
+                </div>
+            </div>
+
+            <div class="large-12 column" id="sep">
+                <h5 class="subheader text-center">SISTEMA DE CONTROL DE INVENTARIOS</h5>
+                <h6 class="subheader text-center">RESIDENCIA DEL ANCIANO "CASA DEL ÁRBOL"</h6>
+            </div>
+        </div>
+
+    {% block contenido %}
+    {% endblock contenido %}
+
+  </body>
+</html>

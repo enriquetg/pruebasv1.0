@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+        {% include 'templates/menu.html' %}
+
+<form action="" method="post">{%  csrf_token %}
+  <p>Desea eliminar este registro "{{ object }}"?</p>
+  <button type="submit" value="Confirm" class="button alert">Eliminar</button>
+  <!--<a type="submit" value="Confirm" />-->
+</form>
+{% endblock %}

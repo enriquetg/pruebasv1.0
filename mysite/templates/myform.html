@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    {% include 'templates/menu.html' %}
+
+<form action="" method="POST">{% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class="button success" name="Enviar">Enviar</button>
+  <!--<input type="submit" class="button success" name="Enviar">-->
+</form>
+
+{% endblock %}

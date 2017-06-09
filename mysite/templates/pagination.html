@@ -1,0 +1,47 @@
+{% load i18n %}
+<div class="pagination pagination-centered">
+    <ul>
+        {% if page_obj.has_previous %}
+            <li>
+                <a href="?{{ page_obj.previous_page_number.querystring }}"><i class="fi-rewind large"></i> Anterior</a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <a href="#">
+
+                    <span><i class="fi-rewind large"></i> Anterior</span>
+                </a>
+            </li>
+        {% endif %}
+
+            {% if page %}
+                {% ifequal page page_obj.number %}
+                    <li class="active">
+                        <a href="#">
+                            <span>{{ page }}</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="?{{ page.querystring }}">{{ page }}</a>
+                    </li>
+                {% endifequal %}
+            {% else %}
+                <li class="disabled">
+                    <a href="#">...</a>
+                </li>
+            {% endif %}
+
+        {% if page_obj.has_next %}
+            <li>
+                <a href="?{{ page_obj.next_page_number.querystring }}">Siguiente <i class="fi-fast-forward"></i></a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <a href="#">
+                    <span>Siguiente <i class="fi-fast-forward"></i></span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</div>

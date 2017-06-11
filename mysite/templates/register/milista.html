@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+    {% include 'templates/menu.html' %}
+
+    <div class="row">
+        <div class="small-12 column">
+            <h2  class="text-center">Personas</h2>
+            <hr>
+            <a class="button success" href="{% url 'persona-add' %}"><i class="fi-plus"></i> Agregar</a>
+
+         <div class="row">
+             {% include "search.html" %}
+         </div>
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <th class="text-center">Nombre(s)</th>
+                        <th class="text-center">Apellidos</th>
+                        <th class="text-center">F.Nacimiento</th>
+                        <th class="text-center">Nacionalidad</th>
+                        <th class="text-center">Direccion</th>
+                        <th class="text-center">Genero</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for person in object_list %}
+                    <tr>
+                        <!--<td>{{ person.id }}</td>-->
+                        <td>{{ person.first_name }}</td>
+                        <td>{{ person.last_name }}</td>
+                        <td>{{ person.birthday }}</td>
+                        <td>{{ person.nacionalidad.nombre }}</td>
+                        <td>{{ person.home_address }}</td>
+                        <td>{% if person.genero == '1' %} Hombre {% else %} Mujer {% endif %}</td>
+                        <td>
+                            <a class="button warning" href="{% url 'user-update' person.id %}"><i class="fi-pencil"></i> Editar</a>
+                            <a class="button alert"  href="{% url 'user-delete' person.id %}"><i class="fi-x"></i> Eliminar</a>
+                            <a class="button success" href="{% url 'user-detail' person.id %}"><i class="fi-list"></i> Lista</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div lass="row">
+                <div class="large-4 column">
+                {% if messages %}
+                    <div class="">
+                        {% for message in messages %}
+                        <div {% if message.tags %} class="callout{% if message.tags == 'info' %} primary {% endif %}"{% endif %}>{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                </div>
+
+                 <div class="large-7 column" >
+                     <div class="large-6 column top-bar-right" >
+                        {% include "pagination.html" %}
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+{% endblock %}

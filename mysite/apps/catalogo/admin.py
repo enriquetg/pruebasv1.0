@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.catalogo.models import Person, Nacionalidad
+from apps.catalogo.models import Person, Nacionalidad, Articulo
 from reversion.admin import VersionAdmin
 
 
@@ -9,5 +9,10 @@ class MyModelAdmin(VersionAdmin):
 
 
 @admin.register(Nacionalidad)
+class NacionalidadAdmin(VersionAdmin):
+    pass
+
+
+@admin.register(Articulo)
 class NacionalidadAdmin(VersionAdmin):
     pass

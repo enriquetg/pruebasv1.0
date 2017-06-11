@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+  <!--  {% include 'templates/menu.html' %} -->
+    <div class="row">
+        <form action="" enctype="multipart/form-data" method="POST">{% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="button success" name="Enviar">Registrar</button>
+        <!--<input type="submit" class="button success" name="Enviar">-->
+        </form>
+    </div>
+
+{% endblock %}

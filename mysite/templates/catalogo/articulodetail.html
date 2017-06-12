@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+        {% include 'login/menu.html' %}
+
+
+  <div class="row">
+                <table>
+
+                    <tr>
+                        <td>
+                            <hr>
+                            <h1>{{ object.titulo }}</h1>
+                        <hr>
+                            <img style="width:200px;"  src="/media/{{ object.photo }} ">
+                            <br>
+                            <br>
+                            <p>{{ object.contenido }}</p>
+                            <br>
+                            <p >Autor: {{ object.autor }}</p> <img style="width:50px; float:right; border-radius: 10px; margin-right: 550px; margin-top: -20px"  src="/media/{{ object.autor.photo }} ">
+                            <br>
+
+                </table>
+            </div>
+
+{% endblock %}

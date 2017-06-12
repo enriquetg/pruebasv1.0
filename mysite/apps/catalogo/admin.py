@@ -2,7 +2,6 @@ from django.contrib import admin
 from apps.catalogo.models import Person, Nacionalidad, Articulo
 from reversion.admin import VersionAdmin
 
-
 @admin.register(Person)
 class MyModelAdmin(VersionAdmin):
     pass

@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+    {% include 'login/menu.html' %}
+
+    <div class="row">
+        <div class="small-12 column">
+            <h2  class="text-center">Articulos</h2>
+            <hr>
+            <a class="button success" href="{% url 'articulo-add' %}"><i class="fi-plus"></i> Agregar</a>
+
+
+             <table>
+                <thead>
+                    <tr>
+                        <th class="text-center">Titulo</th>
+                        <th class="text-center">Estado</th>
+                        <th class="text-center">autor</th>
+                        <th class="text-center">Fecha de cracion</th>
+                        <th class="text-center">photo</th>
+                        <th class="text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for articulo in object_list %}
+                        {% if articulo.autor == user %}
+                    <tr>
+                        <td>{{ articulo.titulo }}</td>
+                        <td>{% if articulo.state == "1" %} Publico {% else %} Privado {% endif %}</td>
+                        <td>{{ articulo.autor }}</td>
+                        <td>{{ articulo.creado }}</td>
+                        <td><img style="width:200px; border-radius: 10px;"  src="/media/{{ articulo.photo }} "></td>
+                        <td>
+                            <a class="button warning" href="{% url 'articulo-update' articulo.id %}"><i class="fi-pencil"></i> Editar</a>
+                            <a class="button alert"  href="{% url 'articulo-delete' articulo.id %}"><i class="fi-x"></i> Eliminar</a>
+                            <a class="button success" href="{% url 'articulo-detail' articulo.id %}"><i class="fi-list"></i> Ver</a>
+                        </td>
+                    </tr>
+                        {% endif %}
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div lass="row">
+                <div class="large-4 column">
+                {% if messages %}
+                    <div class="">
+                        {% for message in messages %}
+                        <div {% if message.tags %} class="callout{% if message.tags == 'info' %} primary {% endif %}"{% endif %}>{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                </div>
+
+                 <div class="large-7 column" >
+                     <div class="large-6 column top-bar-right" >
+                        {% include "pagination.html" %}
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+{% endblock %}

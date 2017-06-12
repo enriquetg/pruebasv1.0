@@ -1,0 +1,19 @@
+
+<div class="row">
+    <div class="small-12 column">
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <ul class="menu">
+                    <li><i class="fi-thumbnails"></i></li>
+                    <li><a href="{% url 'blog-list' %}"><i class="fi-home"></i>Home</a></li>
+                    <li><a href="{% url 'persona-list' %}"><i class="fi-torsos-all-female"></i>Datos</a>
+                    <li><a href="{% url 'articuloo-lista' %}"><i class="fi-torsos-all-female"></i>Articulos</a></li>
+                    <li><a href="{% url 'logout' %}"><i class="fi-power"></i>Salir</a></li>
+                    <li style="float: right; margin-right:-600px; margin-top: -35px;"><h5>Usuario: {{ user }}</h5></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

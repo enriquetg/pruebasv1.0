@@ -11,8 +11,6 @@ class LoginView(FormView):
         username = request.POST['username']
         password = request.POST['password']
         link = self.request.GET.get('next', "/catalogo/persona/welcome")
-        #link = self.request.GET.get('next', "/catalogo/persona/list")
-
         form = self.get_form()
 
         if form.is_valid():
@@ -30,5 +28,5 @@ class LoginView(FormView):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return HttpResponseRedirect('/accounts/login/')
+        return HttpResponseRedirect('/login/accounts/login/')
 

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+        {% include 'login/menu.html' %}
+
+
+    <h4 class="text-center">Nombre: {{ object.first_name }}</h4>
+    <p class="text-center" >Apellido: {{ object.last_name }}</p>
+    <p class="text-center">Direccion: {{ object.home_address}}</p>
+    <p class="text-center">Genero: {% if object.genero == '1' %} Masculino {%else%}Mujer {% endif %}</p>
+    <p class="text-center">Nacimiento: {{ object.birthday }}</p>
+
+{% endblock %}

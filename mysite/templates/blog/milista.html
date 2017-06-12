@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+    {% include 'templates/menu.html' %}
+
+    <div class="row">
+        <div class="small-12 column">
+         <br>
+            <div class="row">
+            <div class="large-4 column">
+                {% if messages %}
+                    <div >
+                        {% for message in messages %}
+                        <div  {% if message.tags %} class="callout{% if message.tags == 'info' %} primary {% endif %}"{% endif %}>{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            </div>
+
+         <div class="row">
+             {% include "search.html" %}
+         </div>
+
+
+            <div>
+                <table>
+                    {% for articulo in object_list %}
+                        {% if articulo.state == '1' %}
+                    <tr>
+                        <td>
+                            <hr>
+                            <h1>{{ articulo.titulo }}</h1>
+                        <hr>
+                            <img style="width:200px;"  src="/media/{{ articulo.photo }} ">
+                            <br>
+                            <br>
+                            <p id='line-clamp'>{{ articulo.contenido }}</p>
+                            <br>
+                            <p >Autor: {{ articulo.autor }}</p> <img style="width:50px; float:right; border-radius: 10px; margin-right: 550px; margin-top: -20px"  src="/media/{{ articulo.autor.photo }} ">
+                            <br>
+                            <a class="button success" href="{% url 'blogg-detail' articulo.id %}"><i class="fi-list"></i> Seguir leyendo ..</a>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+
+
+
+        <div lass="row">
+
+
+                 <div class="large-7 column" >
+                     <div class="large-6 column top-bar-right" >
+                        {% include "pagination.html" %}
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+{% endblock %}

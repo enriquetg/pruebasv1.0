@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block contenido %}
-  <!--  {% include 'templates/menu.html' %} -->
+    {% include 'templates/menu.html' %}
     <div class="row">
         <form action="" enctype="multipart/form-data" method="POST">{% csrf_token %}
             {{form.as_p}}

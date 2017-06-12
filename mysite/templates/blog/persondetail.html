@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+        {% include 'templates/menu.html' %}
+
+
+    <h4 class="text-center">Titulo: {{ object.titulo }}</h4>
+    <p class="text-center" >Conteido: {{ object.contenido }}</p>
+    <p class="text-center">Autor: {{ object.autor}}</p>
+    <p class="text-center">Photo: {{ object.photo }}</p>
+
+{% endblock %}

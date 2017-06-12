@@ -36,3 +36,28 @@ td{
   /**font-family: "Tw Cen MT";**/
   margin-top: 50px;
 }
+
+:root {
+  background: #eee;
+}
+
+#line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  text-align: justify;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  width: 80%;
+  margin: auto;
+
+  font-family: sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+/*
+#line-clamp:hover {
+  -webkit-line-clamp: 100;
+  cursor: pointer;
+}
+*/
+

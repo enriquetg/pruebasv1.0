@@ -7,7 +7,7 @@ from braces.views import LoginRequiredMixin
 from .genericas import ClaseGenericaDeleteView
 
 from apps.Register.forms import UserModelForm
-from apps.catalogo.models import Person
+from apps.catalogo.models import Profile
 
 from apps.djangosearchpaginationplus.views import DinamicPaginationMixin, SearchMixin
 
@@ -20,14 +20,14 @@ class Register(CreateView):
 
 class UserDetailView(DetailView):
     template_name = 'register/persondetail.html'
-    model = Person
+    model = Profile
     def get_context_data(self, **kwargs):
          context = super(UserDetailView, self).get_context_data(**kwargs)
          return context
 
 
 class UserListView(DinamicPaginationMixin, SearchMixin,  LoginRequiredMixin, ListView):
-    model = Person
+    model = Profile
     template_name = 'register/milista.html'
 
     def get_filter(self, queryset):
@@ -60,12 +60,12 @@ class UserListView(DinamicPaginationMixin, SearchMixin,  LoginRequiredMixin, Lis
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'register/register.html'
     fields = '__all__'
-    model = Person
+    model = Profile
     success_url = reverse_lazy('user-list')
 
 
 class UserDeleteView(LoginRequiredMixin, ClaseGenericaDeleteView):
-    model = Person
+    model = Profile
 
 
 #class PersonaTemplateView(TemplateView):

@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-from django.contrib.auth.models import AbstractUser
+#from django.contrib.auth.models import AbstractUser
 
 
 #class DefaultModel(models.Model):
@@ -11,9 +10,8 @@ from django.contrib.auth.models import AbstractUser
    # class Meta:
     #    abstract = True
 
-class Usuario(AbstractUser):
-    telefono = models.CharField('Telefono', max_length=15)
-
+#class Usuario(AbstractUser):
+#       telefono = models.CharField('Telefono', max_length=25)
 
 
 class Nacionalidad(models.Model):
@@ -21,6 +19,28 @@ class Nacionalidad(models.Model):
 
     def __str__(self):
         return "(%s) - %s" % (self.id, self.nombre)
+
+
+class Profile(models.Model):
+    GENERO = (
+        ('1', 'Hombre'),
+        ('2', 'Mujer')
+    )
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    telefono = models.CharField(max_length=12)
+    home_address = models.TextField(null=True, blank=True)
+    genero = models.CharField(choices=GENERO, max_length=10)
+    nacionalidad = models.ForeignKey(Nacionalidad)
+    facebook = models.CharField(null=True, blank=True, max_length=40)
+    twitter = models.CharField(null=True, blank=True, max_length=40)
+    photo = models.ImageField(null=True,  blank=True, upload_to="photos_media")
+
+    def __str__(self):
+        return self.first_name
+
 
 
 class Person(models.Model):

@@ -2,7 +2,7 @@
 
 {% block contenido %}
 
-        {% include 'login/menu.html' %}
+        {% include 'templates/menu.html' %}
 
 <div class="row">
     <h4 class="text-center">Nombre: {{ object.first_name }}djdjdjdj</h4>
@@ -14,7 +14,7 @@
     <p class="text-center">Twitter: <a href="{{ object.twitter }}">{{ object.twitter }} </a></p>
     <p class="text-center"> <img style="width:200px; border-radius: 10px;"  src="/media/{{ object.photo }} "></p>
 
-    <p class="text-center"> <a class="button warning" href="{% url 'persona-update' object.id %}"><i class="fi-pencil"></i> Editar</a></p>
+    <p class="text-center"> <a class="button warning" href="{% url 'blog-list' %}">Atras</a></p>
 
 </div>
 

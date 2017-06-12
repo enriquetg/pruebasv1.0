@@ -38,7 +38,7 @@
                             <br>
                             <p id='line-clamp'>{{ articulo.contenido }}</p>
                             <br>
-                            <p >Autor: {{ articulo.autor }}</p> <img style="width:50px; float:right; border-radius: 10px; margin-right: 550px; margin-top: -20px"  src="/media/{{ articulo.autor.photo }} ">
+                           <a href="{% url 'autor-detail' articulo.autor.id %}"> <p>Autor: {{ articulo.autor }}</p> <img style="width:50px; float:right; border-radius: 10px; margin-right: 550px; margin-top: -20px"  src="/media/{{ articulo.autor.photo }} "></a>
                             <br>
                             <a class="button success" href="{% url 'blogg-detail' articulo.id %}"><i class="fi-list"></i> Seguir leyendo ..</a>
                         {% endif %}
@@ -60,6 +60,5 @@
                 </div>
         </div>
     </div>
-
 
 {% endblock %}

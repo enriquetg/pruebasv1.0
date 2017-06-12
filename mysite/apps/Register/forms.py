@@ -1,8 +1,8 @@
 from django import forms
 
-from apps.catalogo.models import Person
+from apps.catalogo.models import Profile
 
 class UserModelForm(forms.ModelForm):
     class Meta:
-        model = Person
+        model = Profile
         fields = '__all__'

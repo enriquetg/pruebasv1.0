@@ -3,10 +3,8 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.db.models import Q
 
-from braces.views import LoginRequiredMixin
-
 from apps.catalogo.forms import PersonModelForm
-from apps.catalogo.models import Person, Articulo
+from apps.catalogo.models import Profile, Articulo
 
 from apps.djangosearchpaginationplus.views import DinamicPaginationMixin, SearchMixin
 
@@ -36,10 +34,15 @@ class BlogListView(DinamicPaginationMixin, SearchMixin, ListView):
         return queryset
 
 
-class BlogDetailView(LoginRequiredMixin, DetailView):
-            template_name = 'blog/persondetail.html'
+class BlogDetailView( DetailView):
+            template_name = 'blog/blogdetail.html'
             model = Articulo
 
             def get_context_data(self, **kwargs):
                 context = super(BlogDetailView, self).get_context_data(**kwargs)
                 return context
+
+
+class PersonaaDetailView(DetailView):
+    template_name = 'blog/persondetalle.html'
+    model = Profile

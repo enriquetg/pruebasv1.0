@@ -136,3 +136,5 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "assets"),
     '/mysite/assets/',
 )
+
+#AUTH_USER_MODEL = 'catalogo.Usuario'

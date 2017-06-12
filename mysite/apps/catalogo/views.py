@@ -6,7 +6,7 @@ from django.db.models import Q
 from braces.views import LoginRequiredMixin
 
 from apps.catalogo.forms import PersonModelForm, ArticuloModelForm
-from apps.catalogo.models import Person, Articulo
+from apps.catalogo.models import Profile, Articulo
 from apps.djangosearchpaginationplus.views import DinamicPaginationMixin, SearchMixin
 
 
@@ -56,18 +56,18 @@ class PersonListView(LoginRequiredMixin, ListView):
 class PersonaUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'catalogo/myform.html'
     fields = '__all__'
-    model = Person
+    model = Profile
     success_url = reverse_lazy('persona-list')
 
 
 class PersonaDeleteView(LoginRequiredMixin, ClaseGenericaDeleteView):
-    model = Person
+     model = Profile
 
 
 
 class PersonaDetailView(LoginRequiredMixin, DetailView):
     template_name = 'catalogo/persondetail.html'
-    model = Person
+    model = Profile
 
 
 class PersonaTemplateView(LoginRequiredMixin, TemplateView):

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+        {% include 'templates/menu.html' %}
+
+
+    <h4 class="text-center">Titulo: {{ object.titulo }}</h4>
+    <p class="text-center" ><img style="width:200px; border-radius: 10px;"  src="/media/{{ object.photo }} "></p>
+    <p class="text-center" >{{ object.contenido }}</p>
+    <p class="text-center"><a href="{% url 'autor-detail' articulo.autor.id %}"> Autor: {{ articulo.autor }} <img style="width:50px;  border-radius: 10px;"  src="/media/{{ articulo.autor.photo }} "></a></p>
+                            <br>
+
+    <p class="text-center"> <a class="button warning" href="{% url 'blog-list' %}">Atras</a></p>
+
+
+{% endblock %}
